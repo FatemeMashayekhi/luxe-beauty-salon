@@ -234,3 +234,15 @@ This project is actively developed and its structure, features, and UI may evolv
 ---
 
 Built with ❤️ using **Next.js, React, TypeScript, and Tailwind CSS**.
+
+## © Copyright
+
+Copyright © 2026 Fatemeh Mashayekhi. All rights reserved.
+
+This repository is publicly available for viewing and portfolio
+purposes only.
+
+The source code may be viewed and studied for personal and
+educational purposes, but may not be copied, modified,
+redistributed, published, or used in other projects without
+prior written permission from the copyright holder.

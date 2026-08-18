@@ -2,6 +2,15 @@ import Body from "@/components/home-page/body/Body";
 import Footer from "@/components/home-page/footer/Footer";
 import Header from "@/components/home-page/header/Header";
 
+/**
+ * Copyright (c) 2026 Fatemeh Mashayekhi
+ * All rights reserved.
+ *
+ * This source code is part of the Beauty Salon project.
+ * Unauthorized copying, modification, distribution, or use
+ * is prohibited without prior written permission.
+ */
+
 export default function HomePage() {
   return (
     <div className="2xl:flex 2xl:flex-col 2xl:justify-center 2xl:items-center">
