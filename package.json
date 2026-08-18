@@ -1,0 +1,45 @@
+{
+  "name": "beauty-salon",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@radix-ui/react-dropdown-menu": "^2.1.16",
+    "@tanstack/react-query": "^5.101.0",
+    "@tanstack/react-table": "^8.21.3",
+    "axios": "^1.13.2",
+    "clsx": "^2.1.1",
+    "dayjs": "^1.11.21",
+    "formik": "^2.4.6",
+    "framer-motion": "^12.23.24",
+    "jalaliday": "^3.1.1",
+    "js-cookie": "^3.0.8",
+    "next": "^16.2.9",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "react-multi-date-picker": "^4.5.2",
+    "react-slick": "^0.31.0",
+    "slick-carousel": "^1.8.1",
+    "yup": "^1.7.1",
+    "zustand": "^5.0.14"
+  },
+  "devDependencies": {
+    "@iconify/react": "^6.0.2",
+    "@tailwindcss/postcss": "^4",
+    "@types/js-cookie": "^3.0.6",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/react-slick": "^0.23.13",
+    "baseline-browser-mapping": "^2.10.35",
+    "eslint": "^9",
+    "eslint-config-next": "16.0.1",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

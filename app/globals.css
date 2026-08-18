@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+* {
+    font-family: 'AnjomanwebGX';
+}
+
+@font-face {
+    font-family: 'AnjomanwebGX';
+    src: url('../public/fonts/AnjomanwebGX.woff');
+    font-style: normal;
+}
+
+
+.rmdp-wrapper {
+  width: 100%;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.rmdp-calendar {
+  width: 100%;
+}
+
+.rmdp-day {
+  width: 42px;
+  height: 42px;
+}
+
+.rmdp-day.rmdp-selected span:not(.highlight) {
+  background-color: #ef617d !important;
+}
+
+.rmdp-arrow-container:hover {
+  background-color: transparent !important;
+}
+
+.rmdp-header-values {
+  font-weight: 700;
+}
