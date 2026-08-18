@@ -1,7 +1,6 @@
 "use client";
-import { otpLogin } from "@/api/services";
 import { convertToPersianNumbers } from "@/lib/utils";
-import { useMutation } from "@tanstack/react-query";
+// import { useMutation } from "@tanstack/react-query";
 import { useFormik } from "formik";
 import { useRouter } from "next/navigation";
 import * as Yup from "yup";
@@ -23,32 +22,32 @@ export interface LoginFormValues {
 export default function LoginForm() {
   const router = useRouter();
 
-  const mutation = useMutation({
-    mutationFn: otpLogin,
-    onSuccess: () => {
-      router.push("/login/verify");
+  // const mutation = useMutation({
+  //   mutationFn: otpLogin,
+  //   onSuccess: () => {
+  //     router.push("/login/verify");
 
-      // toast({
-      //   title: "کد با موفقیت ارسال شد.",
-      // });
-    },
-    // onError: (error: AxiosError) => {
-    //   const messages = getErrorMessages(error);
-    //   if (error.status === 500) {
-    //     toast({
-    //       variant: "destructive",
-    //       description:
-    //         "خطایی در ارتباط با سرور رخ داده ، به پشتیبانی اطلاع دهید.",
-    //     });
-    //   } else {
-    //     toast({
-    //       variant: "destructive",
-    //       description:
-    //         messages[0] || "خطایی در ارسال کد رخ داده ، لطفا دوباره تلاش کنید",
-    //     });
-    //   }
-    // },
-  });
+  //     toast({
+  //       title: "کد با موفقیت ارسال شد.",
+  //     });
+  //   },
+  //   onError: (error: AxiosError) => {
+  //     const messages = getErrorMessages(error);
+  //     if (error.status === 500) {
+  //       toast({
+  //         variant: "destructive",
+  //         description:
+  //           "خطایی در ارتباط با سرور رخ داده ، به پشتیبانی اطلاع دهید.",
+  //       });
+  //     } else {
+  //       toast({
+  //         variant: "destructive",
+  //         description:
+  //           messages[0] || "خطایی در ارسال کد رخ داده ، لطفا دوباره تلاش کنید",
+  //       });
+  //     }
+  //   },
+  // });
 
   const formik = useFormik<LoginFormValues>({
     initialValues: { phone_number: "" },
@@ -59,7 +58,7 @@ export default function LoginForm() {
       };
       router.push("/login/verify");
       localStorage.setItem("phoneNumber", values.phone_number);
-      mutation.mutate(convertedValues);
+      console.log(convertedValues);
     },
   });
   return (

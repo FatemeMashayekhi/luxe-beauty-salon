@@ -1,8 +1,5 @@
 "use client";
-
-import { otpLogin } from "@/api/services";
 import { convertToPersianNumbers } from "@/lib/utils";
-import { useMutation } from "@tanstack/react-query";
 import { useState, useEffect } from "react";
 
 interface CountdownTimerProps {
@@ -36,16 +33,17 @@ export default function CountDown({
       .padStart(2, "0")}`;
   };
 
-  const mutation = useMutation({
-    mutationFn: otpLogin,
-  });
+  // const mutation = useMutation({
+  //   mutationFn: otpLogin,
+  // });
 
   const handleResendClick = () => {
     const convertedValues = {
       phone_number: convertToPersianNumbers(phoneNumber),
     };
 
-    mutation.mutate(convertedValues);
+    // mutation.mutate(convertedValues);
+    console.log(convertedValues);
 
     setCountdown(initialSeconds);
   };
