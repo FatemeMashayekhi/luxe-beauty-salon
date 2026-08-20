@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 export default function Footer() {
   return (
-    <div className="bg-[#1E1E1E] p-4 flex flex-col gap-y-4 lg:gap-y-8 2xl:w-[70%]">
+    <div className="bg-[#1E1E1E] p-4 flex flex-col gap-y-4 w-full lg:gap-y-8">
       <div className="text-white text-center">
         <h1 className="text-xl font-semibold lg:text-2xl lg:pt-4">
           سالن زیبایی لوکس
