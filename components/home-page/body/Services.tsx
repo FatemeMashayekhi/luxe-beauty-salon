@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import facial from "@/public/images/services/facial-mask.png";
 import hair from "@/public/images/services/hair.png";
 import nail from "@/public/images/services/nail-polish.png";
@@ -7,48 +8,54 @@ import eyelashes from "@/public/images/services/eyelash.png";
 
 const data = [
   {
-    img: facial,
     id: 1,
+    img: facial,
     text: "فیشیال",
   },
   {
-    img: hair,
     id: 2,
+    img: hair,
     text: "مو",
   },
   {
-    img: nail,
     id: 3,
-    text: "ناخون",
+    img: nail,
+    text: "ناخن",
   },
   {
-    img: eyebrow,
     id: 4,
+    img: eyebrow,
     text: "ابرو",
   },
   {
-    img: eyelashes,
     id: 5,
+    img: eyelashes,
     text: "مژه",
   },
 ];
 
 function Services() {
   return (
-    <div className="grid grid-cols-2 gap-6 p-1 lg:px-6 lg:py-2 xl:w-[70%]">
+    <div className="mx-auto grid w-full max-w-4xl grid-cols-2 gap-y-8 sm:gap-y-10 lg:grid-cols-5 lg:gap-y-0">
       {data.map((item, index) => (
         <div
           key={item.id}
-          className={`bg-[#FFF8F5] rounded-2xl shadow ${
-            index === data.length - 1
-              ? "col-span-2 justify-self-center w-[calc(50%-12px)]"
-              : ""
-          }`}
+          className={`
+            flex flex-col items-center gap-y-3
+            ${index === data.length - 1 ? "col-span-2 lg:col-span-1" : ""}
+          `}
         >
-          <div className="flex justify-center items-center p-3">
-            <Image src={item.img} alt={item.text} className="size-20" />
+          <div className="flex size-24 items-center justify-center rounded-full bg-[#FFF5F2] sm:size-28">
+            <Image
+              src={item.img}
+              alt={item.text}
+              className="size-20 object-contain sm:size-24"
+            />
           </div>
-          <h3 className="pb-4 font-semibold">{item.text}</h3>
+
+          <span className="font-medium text-[#2F2020] sm:text-lg">
+            {item.text}
+          </span>
         </div>
       ))}
     </div>

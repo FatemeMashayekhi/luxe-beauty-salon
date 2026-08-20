@@ -10,7 +10,10 @@ export default function Body() {
         <Image src={banner} loading="eager" alt="banner" />
       </div>
       <div className="flex flex-col text-center gap-y-4 lg:gap-y-6">
-        <h3 className="font-semibold text-lg lg:text-3xl">خدمات ما</h3>
+        <h3 className="font-semibold text-lg lg:text-3xl">خدمات زیبایی ما</h3>
+        <p className="text-sm text-neutral-500 lg:text-base">
+          زیبایی، با ظرافت و تخصص
+        </p>
         <div className="overflow-hidden px-3 xl:flex xl:justify-center xl:items-center">
           <Services />
         </div>
@@ -29,9 +32,6 @@ export default function Body() {
           <h5 className="text-md lg:text-2xl">
             تجربه ای متفاوت از زیبایی و آرامش
           </h5>
-          {/* <button className="bg-white/30 text-white rounded-xl py-2 px-4 w-[50%] lg:text-xl lg:py-3">
-            رزرو آنلاین وقت
-          </button> */}
           <Link
             href={"/login"}
             className="bg-white/30 text-white rounded-xl py-2 px-4 w-[50%] lg:text-xl lg:py-3"
