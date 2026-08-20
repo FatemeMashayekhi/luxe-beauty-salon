@@ -5,19 +5,20 @@ import Image from "next/image";
 import Verification from "@/components/login/Verification";
 import { useSyncExternalStore } from "react";
 
-/////AI SOLUTION//////////////////////////////////////////
-const subscribe = () => () => {};
-const getSnapshot = () => {
-  return localStorage.getItem("phoneNumber");
-};
-const getServerSnapshot = () => null;
+//////////////AI SOLUTION///////////////////////
+const emptySubscribe = () => () => {};
 function usePhoneNumber() {
-  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  return useSyncExternalStore(
+    emptySubscribe,
+    () => localStorage.getItem("phoneNumber"),
+    () => null,
+  );
 }
-///////////////////////////////////////////////
+////////////////////////////////////////////////
 
 export default function VerificationCodePage() {
   const phoneNumber = usePhoneNumber();
+
   if (!phoneNumber) {
     return null;
   }
