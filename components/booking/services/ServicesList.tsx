@@ -1,10 +1,11 @@
 "use client";
-import { getCategoriesList } from "@/api/services";
-import { useQuery } from "@tanstack/react-query";
+// import { getCategoriesList } from "@/api/services";
+// import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import logo from "@/public/images/services/hair.png";
 import { ServicesListModels } from "@/Models/bookingModels";
 import { faNumber, faPrice } from "@/lib/utils";
+import { categoriesData } from "@/data/categories";
 
 interface Props {
   categoryId: number | null;
@@ -17,16 +18,17 @@ export default function ServicesList({
   search,
   handleSelectService,
 }: Props) {
-  const { data } = useQuery({
-    queryKey: ["categories-list"],
+  // const { data } = useQuery({
+  //   queryKey: ["categories-list"],
 
-    queryFn: getCategoriesList,
-  });
+  //   queryFn: getCategoriesList,
+  // });
 
   const services =
     categoryId === null
-      ? data?.flatMap((category) => category.services ?? [])
-      : data?.find((category) => category.id === categoryId)?.services;
+      ? categoriesData?.flatMap((category) => category.services ?? [])
+      : categoriesData?.find((category) => category.id === categoryId)
+          ?.services;
 
   const filteredServices = services?.filter((service) =>
     service.title.toLowerCase().includes(search.toLowerCase()),

@@ -1,5 +1,6 @@
-import { getCategoriesList } from "@/api/services";
-import { useQuery } from "@tanstack/react-query";
+// import { getCategoriesList } from "@/api/services";
+// import { useQuery } from "@tanstack/react-query";
+import { categoriesData } from "@/data/categories";
 
 interface Props {
   selectedCategory: number | null;
@@ -11,18 +12,18 @@ export default function CategoriesList({
   selectedCategory,
   setSelectedCategory,
 }: Props) {
-  const { data, isLoading, isError } = useQuery({
-    queryKey: ["categories-list"],
-    queryFn: getCategoriesList,
-  });
+  // const { data, isLoading, isError } = useQuery({
+  //   queryKey: ["categories-list"],
+  //   queryFn: getCategoriesList,
+  // });
 
-  if (isLoading) {
-    return <p>در حال بارگذاری...</p>;
-  }
+  // if (isLoading) {
+  //   return <p>در حال بارگذاری...</p>;
+  // }
 
-  if (isError) {
-    return <p>خطا در دریافت خدمات</p>;
-  }
+  // if (isError) {
+  //   return <p>خطا در دریافت خدمات</p>;
+  // }
   return (
     <div className="flex justify-between items-center gap-x-3 lg:gap-x-4">
       <button
@@ -31,7 +32,7 @@ export default function CategoriesList({
       >
         همه
       </button>
-      {data?.map((category) => (
+      {categoriesData?.map((category) => (
         <button
           key={category.id}
           className={`border border-[#E8E8E8] rounded-xl p-2 lg:w-full ${
