@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 export interface ServicesListModels {
   id: number;
   title: string;
@@ -8,14 +10,15 @@ export interface ServicesListModels {
 export interface CategoriesListModels {
   id: number;
   title: string;
-  svg?: null;
-  services?: ServicesEntity[] | null;
+  image: StaticImageData;
+  services: ServicesEntity[];
 }
 export interface ServicesEntity {
   id: number;
   title: string;
   duration: number;
   reserve_fee: number;
+  image: StaticImageData;
 }
 
 export interface StaffListModels {

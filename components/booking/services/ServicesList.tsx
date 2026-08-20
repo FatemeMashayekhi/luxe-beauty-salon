@@ -2,7 +2,6 @@
 // import { getCategoriesList } from "@/api/services";
 // import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
-import logo from "@/public/images/services/hair.png";
 import { ServicesListModels } from "@/Models/bookingModels";
 import { faNumber, faPrice } from "@/lib/utils";
 import { categoriesData } from "@/data/categories";
@@ -41,7 +40,7 @@ export default function ServicesList({
           key={item.id}
           className="shadow border border-[#E8E8E8] flex justify-between items-center rounded-xl p-2"
         >
-          <Image src={logo} alt={item.title} width={50} />
+          <Image src={item.image} alt={item.title} width={50} />
           <div className="flex flex-col gap-y-1">
             <span>{item.title}</span>
             <div className="flex gap-x-1.5 text-sm text-[#9A9A9A]">
