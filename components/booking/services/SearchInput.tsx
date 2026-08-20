@@ -28,7 +28,7 @@ export default function SearchInput({
       <input
         name="services-search"
         id="services-search"
-        type="search"
+        type="text"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         placeholder="جستجوی خدمات ..."
