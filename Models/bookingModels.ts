@@ -46,7 +46,7 @@ export interface StaffTimesModels {
   id: number;
   first_name: string;
   last_name: string;
-  image?: null;
+  image: StaticImageData;
   slots: SlotsEntity[];
 }
 export interface SlotsEntity {

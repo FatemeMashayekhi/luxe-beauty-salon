@@ -50,7 +50,9 @@ export default function ShowDateTime({ date, time }: ShowDateTimeProps) {
             <p>
               <span className="font-semibold">تاریخ:</span>
 
-              <span className="mr-2">{faNumber(date)}</span>
+              <span dir="rtl" className="mr-2">
+                {faNumber(date)}
+              </span>
             </p>
 
             <p>

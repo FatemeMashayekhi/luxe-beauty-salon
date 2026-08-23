@@ -5,15 +5,16 @@ import { useEffect, useMemo } from "react";
 import BookingCalendar from "@/components/booking/schedule/BookingCalendar";
 import FreeTimeSection from "@/components/booking/schedule/FreeTimeSection";
 import ShowDateTime from "@/components/booking/schedule/ShowDateTime";
-import { useQuery } from "@tanstack/react-query";
-import { getStaffSchedule } from "@/api/services";
+import { staffTimesData } from "@/data/time";
 
 export default function SchedulePage() {
   const router = useRouter();
+
   const service = useBookingStore((state) => state.service);
   const employee = useBookingStore((state) => state.employee);
   const date = useBookingStore((state) => state.date);
   const time = useBookingStore((state) => state.time);
+
   const setDate = useBookingStore((state) => state.setDate);
   const setTime = useBookingStore((state) => state.setTime);
   const setSlotId = useBookingStore((state) => state.setSlotId);
@@ -29,61 +30,54 @@ export default function SchedulePage() {
     }
   }, [service, employee, router]);
 
-  const { data: staff } = useQuery({
-    queryKey: ["staff-schedule", employee?.id],
-    queryFn: () => getStaffSchedule(employee!.id),
-    enabled: Boolean(employee),
-    staleTime: 0,
-    refetchOnMount: "always",
-  });
+  const selectedEmployee = useMemo(() => {
+    if (!employee) return null;
+
+    return staffTimesData.find((staff) => staff.id === employee.id) ?? null;
+  }, [employee]);
 
   const availableDays = useMemo(() => {
-    if (!staff) return [];
+    if (!selectedEmployee) return [];
 
     return [
       ...new Set(
-        staff.slots
-          .filter((item) => item.status === "available")
-          .map((item) => item.date),
+        selectedEmployee.slots
+          .filter((slot) => slot.status === "available")
+          .map((slot) => slot.date),
       ),
     ];
-  }, [staff]);
+  }, [selectedEmployee]);
 
-  // const slots = useMemo(() => {
-  //   if (!staff || !date) return [];
+  const availableSlots = useMemo(() => {
+    if (!selectedEmployee || !date) return [];
 
-  //   return staff.slots
+    return selectedEmployee.slots.filter(
+      (slot) => slot.date === date && slot.status === "available",
+    );
+  }, [selectedEmployee, date]);
 
-  //     .filter((item) => item.date === date && item.status === "available")
-
-  //     .map((item) => item.start_time.slice(0, 5));
-  // }, [staff, date]);
-
-  // const handleContinue = () => {
-  //   if (!date || !time) return;
-
-  //   const reservationId = crypto.randomUUID();
-
-  //   const expiresAt = new Date(Date.now() + 5 * 60 * 1000).toISOString();
-
-  //   setReservation(reservationId, expiresAt);
-
-  //   router.push("/booking/information");
-  // };
+  if (!service || !employee) {
+    return null;
+  }
 
   return (
     <div className="mx-auto max-w-5xl p-4">
-      <div className="mb-4 rounded-xl bg-pink-50 p-4">
-        <p>
-          <strong>خدمت:</strong>
+      <div className="mb-4 rounded-2xl border border-gray-200 bg-white p-4">
+        <div className="flex items-center justify-between">
+          <div className="flex flex-col gap-y-1">
+            <span className="text-xs text-gray-500">خدمت</span>
 
-          {service?.title}
-        </p>
+            <span className="font-semibold text-gray-900">{service.title}</span>
+          </div>
 
-        <p>
-          <strong>متخصص:</strong>
-          {employee?.first_name} {employee?.last_name}
-        </p>
+          <div className="flex flex-col items-end gap-y-1">
+            <span className="text-xs text-gray-500">متخصص</span>
+
+            <span className="font-semibold text-gray-900">
+              {employee.first_name} {employee.last_name}
+            </span>
+          </div>
+        </div>
       </div>
 
       <div className="rounded-3xl border bg-white p-1 shadow-sm">
@@ -95,11 +89,7 @@ export default function SchedulePage() {
 
         <FreeTimeSection
           date={date}
-          slots={
-            staff?.slots.filter(
-              (item) => item.date === date && item.status === "available",
-            ) ?? []
-          }
+          slots={availableSlots}
           setTime={setTime}
           setSlotId={setSlotId}
           time={time}
