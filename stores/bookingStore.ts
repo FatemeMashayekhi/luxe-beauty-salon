@@ -1,3 +1,4 @@
+import { StaticImageData } from "next/image";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
@@ -12,7 +13,7 @@ type Employee = {
   id: number;
   first_name: string;
   last_name: string;
-  image: string | null;
+  image: StaticImageData;
 };
 
 type BookingStore = {

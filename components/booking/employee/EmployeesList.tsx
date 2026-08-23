@@ -29,16 +29,36 @@ export default function EmployeesList() {
     router.push("/booking/schedule");
   };
 
+  if (!service) {
+    return null;
+  }
+
   return (
     <div className="p-4 flex flex-col gap-y-8 lg:w-[70%]">
-      <div className="rounded-xl bg-pink-50 p-3">
-        <span className="text-sm text-gray-500">خدمت انتخاب شده:</span>
+      <div className="flex items-center justify-between rounded-2xl border border-gray-200 bg-white p-4">
+        <div className="flex flex-col gap-y-1">
+          <span className="text-xs text-gray-500">خدمت انتخاب‌شده</span>
 
-        <div className="font-semibold">{service?.title}</div>
+          <span className="font-semibold text-gray-900">{service.title}</span>
+
+          <div className="flex items-center gap-x-2 text-xs text-gray-500">
+            <span>{service.duration} دقیقه</span>
+            <span>•</span>
+            <span>{service.price.toLocaleString("fa-IR")} تومان</span>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          onClick={() => router.push("/booking")}
+          className="text-sm font-medium text-[#EF617D]"
+        >
+          تغییر
+        </button>
       </div>
       <EmployeesCard
         handleSelectEmployee={handleSelectEmployee}
-        serviceId={service?.id ?? 1}
+        serviceId={service.id}
       />
     </div>
   );

@@ -25,7 +25,7 @@ export interface StaffListModels {
   id: number;
   first_name: string;
   last_name: string;
-  image: string | null;
+  image: StaticImageData;
 }
 
 export interface ServiceStaffModels {
@@ -33,13 +33,13 @@ export interface ServiceStaffModels {
   title: string;
   duration: number;
   reserve_fee: number;
-  staff?: StaffEntity[] | null;
+  staff: StaffEntity[];
 }
 export interface StaffEntity {
   id: number;
   first_name: string;
   last_name: string;
-  image: string | null;
+  image: StaticImageData;
 }
 
 export interface StaffTimesModels {
