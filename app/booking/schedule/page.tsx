@@ -61,8 +61,8 @@ export default function SchedulePage() {
   }
 
   return (
-    <div className="mx-auto max-w-5xl p-4">
-      <div className="mb-4 rounded-2xl border border-gray-200 bg-white p-4">
+    <div className="mx-auto max-w-5xl p-4 lg:flex lg:flex-col lg:justify-center lg:items-center">
+      <div className="mb-4 rounded-2xl border border-gray-200 bg-white p-4 w-full">
         <div className="flex items-center justify-between">
           <div className="flex flex-col gap-y-1">
             <span className="text-xs text-gray-500">خدمت</span>
@@ -80,7 +80,7 @@ export default function SchedulePage() {
         </div>
       </div>
 
-      <div className="rounded-3xl border bg-white p-1 shadow-sm">
+      <div className="rounded-3xl border bg-white p-1 shadow-sm lg:w-[60%]">
         <BookingCalendar
           availableDays={availableDays}
           selectedDate={date}
