@@ -4,8 +4,6 @@ import { useBookingStore } from "@/stores/bookingStore";
 import { convertToPersianNumbers } from "@/lib/utils";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { getMe, updateMe } from "@/api/services";
 
 const LoginSchema = Yup.object({
   phone_number: Yup.string()
@@ -36,48 +34,16 @@ export default function InformationForm() {
   const router = useRouter();
   const setCustomerInfo = useBookingStore((state) => state.setCustomerInfo);
 
-  const { data } = useQuery({
-    queryKey: ["me"],
-
-    queryFn: getMe,
-  });
-
-  const mutation = useMutation({
-    mutationFn: updateMe,
-  });
-
   const formik = useFormik<LoginFormValues>({
     enableReinitialize: true,
     initialValues: {
-      phone_number: data?.user.phone_number ?? "",
-      first_name: data?.user.first_name ?? "",
-      last_name: data?.user.last_name ?? "",
+      phone_number: "",
+      first_name: "",
+      last_name: "",
     },
     validationSchema: LoginSchema,
-    onSubmit: async (values) => {
-      const changed =
-        values.first_name !== data?.user.first_name ||
-        values.last_name !== data?.user.last_name;
-
-      let finalUser = {
-        first_name: values.first_name,
-        last_name: values.last_name,
-        phone_number: values.phone_number,
-      };
-
-      if (changed) {
-        const response = await mutation.mutateAsync({
-          first_name: values.first_name,
-          last_name: values.last_name,
-        });
-        finalUser = response.user;
-      }
-
-      setCustomerInfo(
-        finalUser.first_name,
-        finalUser.last_name,
-        finalUser.phone_number,
-      );
+    onSubmit: (values) => {
+      setCustomerInfo(values.first_name, values.last_name, values.phone_number);
 
       router.push("/booking/review");
     },
