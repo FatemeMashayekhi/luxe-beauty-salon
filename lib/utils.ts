@@ -54,7 +54,9 @@ const persianMonths = [
 const toPersianNumber = (value: string | number) =>
   value.toString().replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]);
 
-export const formatPersianDate = (date: string) => {
+export const formatPersianDate = (date: string | null | undefined) => {
+  if (!date) return "";
+
   const jalali = dayjs(date).calendar("jalali");
 
   const day = toPersianNumber(jalali.format("D"));
