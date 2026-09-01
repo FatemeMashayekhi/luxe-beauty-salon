@@ -1,14 +1,17 @@
 "use client";
 import { useBookingGuard } from "@/hooks/useBookingGuard";
 import { Icon } from "@iconify/react";
+import { useRouter } from "next/navigation";
 
 export default function PaymentButton() {
+  const router = useRouter();
   useBookingGuard();
 
   return (
     <div className="flex flex-col gap-3">
       <button
         type="button"
+        onClick={() => router.push("/")}
         className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#EF617D] py-3.5 font-semibold text-white shadow-sm shadow-pink-200 transition-all duration-200 hover:bg-[#e95472] hover:shadow-md active:scale-[0.99] sm:text-lg"
       >
         <Icon icon="material-symbols:lock-outline" width="22" height="22" />
