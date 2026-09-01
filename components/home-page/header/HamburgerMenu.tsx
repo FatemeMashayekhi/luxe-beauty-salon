@@ -58,12 +58,7 @@ export default function HamburgerMenu() {
                 <DropdownMenu.Separator className="h-px bg-neutral-200 my-1" />
 
                 <DropdownMenu.Item
-                  onClick={() => {
-                    document
-                      .getElementById("intro")
-                      ?.scrollIntoView({ behavior: "smooth" });
-                    setOpen(false);
-                  }}
+                  onClick={() => router.push("/about")}
                   className="rounded-2xl cursor-pointer outline-none"
                 >
                   درباره ما
@@ -72,29 +67,10 @@ export default function HamburgerMenu() {
                 <DropdownMenu.Separator className="h-px bg-neutral-200 my-1" />
 
                 <DropdownMenu.Item
-                  onClick={() => {
-                    document
-                      .getElementById("intro")
-                      ?.scrollIntoView({ behavior: "smooth" });
-                    setOpen(false);
-                  }}
+                  onClick={() => router.push("/questions")}
                   className="rounded-2xl cursor-pointer outline-none"
                 >
                   سوالات متداول
-                </DropdownMenu.Item>
-
-                <DropdownMenu.Separator className="h-px bg-neutral-200 my-1" />
-
-                <DropdownMenu.Item
-                  onClick={() => {
-                    document
-                      .getElementById("products")
-                      ?.scrollIntoView({ behavior: "smooth" });
-                    setOpen(false);
-                  }}
-                  className="rounded-2xl cursor-pointer outline-none"
-                >
-                  گالری
                 </DropdownMenu.Item>
               </motion.div>
             </DropdownMenu.Content>

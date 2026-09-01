@@ -22,13 +22,10 @@ export default function Header() {
           <Link href={"/"}>خانه</Link>
         </li>
         <li className="hover:text-[#E85372]">
-          <Link href={"/"}>درباره ما</Link>
+          <Link href={"/about"}>درباره ما</Link>
         </li>
         <li className="hover:text-[#E85372]">
-          <Link href={"/"}>سوالات متداول</Link>
-        </li>
-        <li className="hover:text-[#E85372]">
-          <Link href={"/"}>گالری</Link>
+          <Link href={"/questions"}>سوالات متداول</Link>
         </li>
       </menu>
       <Image src={logo} alt="logo" width={140} />
