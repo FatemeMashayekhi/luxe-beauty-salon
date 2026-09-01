@@ -4,7 +4,7 @@ import Price from "@/components/booking/payment/Price";
 
 export default function PaymentPage() {
   return (
-    <main className="min-h-[calc(100vh-80px)] bg-neutral-50 px-4 py-6 sm:px-6 lg:py-10">
+    <main className="px-4 py-6">
       <div className="mx-auto flex w-full max-w-2xl flex-col gap-6">
         <div className="text-center">
           <h1 className="text-xl font-bold text-neutral-900 sm:text-2xl">
