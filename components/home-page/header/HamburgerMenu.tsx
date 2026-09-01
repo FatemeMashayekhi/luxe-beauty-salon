@@ -23,7 +23,6 @@ export default function HamburgerMenu() {
             }`}
           />
           <div className="hidden lg:flex lg:gap-x-1 lg:items-center cursor-pointer">
-            {/* <p className="text-paimonak-text text-lg">پایمونک</p> */}
             <Icon
               icon="iconamoon:arrow-down-2"
               width="24"
@@ -67,6 +66,20 @@ export default function HamburgerMenu() {
                   }}
                   className="rounded-2xl cursor-pointer outline-none"
                 >
+                  درباره ما
+                </DropdownMenu.Item>
+
+                <DropdownMenu.Separator className="h-px bg-neutral-200 my-1" />
+
+                <DropdownMenu.Item
+                  onClick={() => {
+                    document
+                      .getElementById("intro")
+                      ?.scrollIntoView({ behavior: "smooth" });
+                    setOpen(false);
+                  }}
+                  className="rounded-2xl cursor-pointer outline-none"
+                >
                   سوالات متداول
                 </DropdownMenu.Item>
 
@@ -81,7 +94,7 @@ export default function HamburgerMenu() {
                   }}
                   className="rounded-2xl cursor-pointer outline-none"
                 >
-                  فروشگاه
+                  گالری
                 </DropdownMenu.Item>
               </motion.div>
             </DropdownMenu.Content>

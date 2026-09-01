@@ -10,9 +10,6 @@ export default function Header() {
         <div className="lg:hidden">
           <HamburgerMenu />
         </div>
-        {/* <button className="bg-[#EF617D] text-white rounded-xl py-2 px-4 lg:text-lg">
-          رزرو وقت
-        </button> */}
         <Link
           href={"/login"}
           className="bg-[#EF617D] text-white rounded-xl py-2 px-4 lg:text-lg"
@@ -32,12 +29,6 @@ export default function Header() {
         </li>
         <li className="hover:text-[#E85372]">
           <Link href={"/"}>گالری</Link>
-        </li>
-        <li className="hover:text-[#E85372]">
-          <Link href={"/"}>خدمات</Link>
-        </li>
-        <li className="hover:text-[#E85372]">
-          <Link href={"/"}>فروشگاه</Link>
         </li>
       </menu>
       <Image src={logo} alt="logo" width={140} />
