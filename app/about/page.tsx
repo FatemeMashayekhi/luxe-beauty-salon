@@ -5,6 +5,7 @@ import StorySection from "@/components/about/StorySection";
 import ValuesSection from "@/components/about/ValuesSection";
 import TeamSection from "@/components/about/TeamSection";
 import CTASection from "@/components/about/CTASection";
+import Footer from "@/components/home-page/footer/Footer";
 
 export default function AboutPage() {
   return (
@@ -16,6 +17,7 @@ export default function AboutPage() {
       <ValuesSection />
       <TeamSection />
       <CTASection />
+      <Footer />
     </main>
   );
 }
