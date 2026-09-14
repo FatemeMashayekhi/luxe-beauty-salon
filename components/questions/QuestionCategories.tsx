@@ -32,7 +32,7 @@ export default function QuestionCategories({
           چه چیزی می‌خواهید بدانید؟
         </h2>
       </div>
-      <div className="flex gap-2 overflow-x-auto pb-2 lg:flex-col lg:overflow-visible">
+      <div className="flex gap-2 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:flex-col lg:overflow-visible">
         {categories.map((category) => {
           const isActive = activeCategory === category.id;
           return (
