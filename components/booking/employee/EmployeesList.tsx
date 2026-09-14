@@ -34,16 +34,21 @@ export default function EmployeesList() {
   }
 
   return (
-    <div className="p-4 flex flex-col gap-y-8 lg:w-[70%]">
-      <div className="flex items-center justify-between rounded-2xl border border-gray-200 bg-white p-4">
-        <div className="flex flex-col gap-y-1">
-          <span className="text-xs text-gray-500">خدمت انتخاب‌شده</span>
+    <div className="mx-auto flex w-full max-w-4xl flex-col gap-5 px-4 py-5 lg:py-8">
+      <div className="flex items-center justify-between rounded-2xl border border-[#F0E6E8] bg-white px-4 py-3.5 shadow-[0_4px_18px_rgba(0,0,0,0.03)]">
+        <div className="min-w-0">
+          <div className="mb-1 flex items-center gap-2">
+            <span className="text-xs text-[#999]">خدمت انتخاب‌شده</span>
+            <span className="size-1 rounded-full bg-[#EF617D]" />
+          </div>
 
-          <span className="font-semibold text-gray-900">{service.title}</span>
+          <h2 className="truncate text-[15px] font-semibold text-[#292929]">
+            {service.title}
+          </h2>
 
-          <div className="flex items-center gap-x-2 text-xs text-gray-500">
+          <div className="mt-1.5 flex items-center gap-2 text-xs text-[#999]">
             <span>{service.duration} دقیقه</span>
-            <span>•</span>
+            <span className="text-[#D5D5D5]">•</span>
             <span>{service.price.toLocaleString("fa-IR")} تومان</span>
           </div>
         </div>
@@ -51,15 +56,26 @@ export default function EmployeesList() {
         <button
           type="button"
           onClick={() => router.push("/booking")}
-          className="text-sm font-medium text-[#EF617D]"
+          className="shrink-0 rounded-xl px-3 py-2 text-sm font-medium text-[#EF617D] transition-colors hover:bg-[#FFF3F6]"
         >
           تغییر
         </button>
       </div>
-      <EmployeesCard
-        handleSelectEmployee={handleSelectEmployee}
-        serviceId={service.id}
-      />
+
+      <div>
+        <div className="mb-4">
+          <h1 className="text-lg font-bold text-[#292929]">انتخاب متخصص</h1>
+
+          <p className="mt-1 text-sm text-[#999]">
+            متخصص مورد نظر خود را برای این خدمت انتخاب کنید.
+          </p>
+        </div>
+
+        <EmployeesCard
+          handleSelectEmployee={handleSelectEmployee}
+          serviceId={service.id}
+        />
+      </div>
     </div>
   );
 }
