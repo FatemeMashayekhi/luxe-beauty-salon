@@ -10,7 +10,7 @@ export default function CategoriesList({
   setSelectedCategory,
 }: Props) {
   return (
-    <div className="w-full overflow-x-auto pb-1 scrollbar-none">
+    <div className="w-full overflow-x-auto pb-1 scrollbar-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
       <div className="flex min-w-max items-center gap-2 lg:grid lg:min-w-0 lg:grid-cols-6 lg:gap-3">
         <button
           onClick={() => setSelectedCategory(null)}
