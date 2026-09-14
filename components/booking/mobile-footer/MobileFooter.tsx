@@ -8,12 +8,12 @@ export interface NavbarItems {
 const navbarItems: NavbarItems[] = [
   {
     title: "خانه",
-    url: "/home",
+    url: "/",
     icon: "Home",
   },
   {
     title: "پروفایل",
-    url: "/profile",
+    url: "/",
     icon: "Profile",
   },
   {
