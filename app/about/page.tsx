@@ -10,7 +10,9 @@ import Footer from "@/components/home-page/footer/Footer";
 export default function AboutPage() {
   return (
     <main dir="rtl" className="overflow-hidden text-neutral-900">
-      <Header />
+      <div className="2xl:flex 2xl:flex-col 2xl:justify-center 2xl:items-center">
+        <Header />
+      </div>
       <HeroSection />
       <StatsSection />
       <StorySection />
