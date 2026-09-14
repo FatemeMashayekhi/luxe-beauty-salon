@@ -5,6 +5,7 @@ export interface NavbarItems {
   icon: string;
   url: string;
 }
+
 const navbarItems: NavbarItems[] = [
   {
     title: "خانه",
@@ -12,30 +13,30 @@ const navbarItems: NavbarItems[] = [
     icon: "Home",
   },
   {
-    title: "پروفایل",
-    url: "/",
-    icon: "Profile",
-  },
-  {
     title: "خدمات",
     url: "/booking",
     icon: "Services",
   },
+  {
+    title: "پروفایل",
+    url: "/profile",
+    icon: "Profile",
+  },
 ];
+
 export const MobileFooter = () => {
   return (
-    <footer
-      className={
-        "lg:hidden px-4 py-6 sticky bottom-0 z-40 bg-white shadow-inner"
-      }
-    >
-      <nav dir={"rtl"} className={"flex px-6 items-start justify-between"}>
+    <footer className="sticky bottom-0 z-40 border-t border-[#F1E5E8] bg-white lg:hidden">
+      <nav
+        dir="rtl"
+        className="mx-auto flex max-w-md items-center justify-around px-6 py-2"
+      >
         {navbarItems.map(({ title, icon, url }) => (
           <MobileFooterNavChild
+            key={title}
             title={title}
             icon={icon}
             url={url}
-            key={title}
           />
         ))}
       </nav>
