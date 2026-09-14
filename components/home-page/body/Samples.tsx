@@ -8,6 +8,7 @@ import hair from "@/public/images/samples/hair.jpg";
 import nail from "@/public/images/samples/nail.jpg";
 import eyebrow from "@/public/images/samples/eyebrow.png";
 import eyelashes from "@/public/images/samples/eyelashes.jpg";
+import { useEffect, useState } from "react";
 
 const data = [
   {
@@ -37,49 +38,54 @@ const data = [
   },
 ];
 
-function Samples() {
+export default function Samples() {
+  const [slidesToShow, setSlidesToShow] = useState(2);
+
+  useEffect(() => {
+    const updateSlides = () => {
+      if (window.innerWidth < 768) {
+        setSlidesToShow(2);
+      } else if (window.innerWidth < 1024) {
+        setSlidesToShow(3);
+      } else {
+        setSlidesToShow(4);
+      }
+    };
+
+    updateSlides();
+
+    window.addEventListener("resize", updateSlides);
+
+    return () => {
+      window.removeEventListener("resize", updateSlides);
+    };
+  }, []);
+
   const settings = {
     dots: true,
     infinite: true,
     autoplay: true,
-    speed: 2000,
-
-    slidesToShow: 4,
-    slidesToScroll: 4,
-
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        },
-      },
-    ],
+    speed: 1000,
+    slidesToShow,
+    slidesToScroll: 1,
+    variableWidth: false,
   };
+
   return (
-    <div className="slider-container">
-      <Slider {...settings}>
+    <div className="slider-container min-w-0 w-full overflow-hidden">
+      <Slider key={slidesToShow} {...settings}>
         {data.map((item) => (
           <div key={item.id} className="px-2 py-1">
-            <div className="bg-[#FFF8F5] rounded-2xl shadow">
-              <div className="relative min-h-40 lg:min-h-60 w-full">
+            <div className="rounded-2xl bg-[#FFF8F5] shadow">
+              <div className="relative min-h-40 w-full lg:min-h-60">
                 <Image
                   src={item.img}
                   alt={item.text}
                   fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover rounded-2xl"
+                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  className="rounded-2xl object-cover"
                 />
               </div>
-              {/* <h3 className="p-4">{item.text}</h3> */}
             </div>
           </div>
         ))}
@@ -87,5 +93,3 @@ function Samples() {
     </div>
   );
 }
-
-export default Samples;
