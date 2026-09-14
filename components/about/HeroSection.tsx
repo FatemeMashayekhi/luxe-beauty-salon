@@ -2,6 +2,7 @@ import { Icon } from "@iconify/react";
 import Image from "next/image";
 import Link from "next/link";
 import pic1 from "@/public/images/about/hero.png";
+import HeroBtn from "./HeroBtn";
 
 export default function HeroSection() {
   return (
@@ -38,12 +39,7 @@ export default function HeroSection() {
               <Icon icon="solar:arrow-left-linear" width="20" height="20" />
             </Link>
 
-            <a
-              href="#story"
-              className="inline-flex h-12 items-center justify-center rounded-xl border border-neutral-200 bg-white px-7 font-semibold text-neutral-700 transition hover:border-[#EF617D]/30 hover:text-[#EF617D]"
-            >
-              آشنایی بیشتر
-            </a>
+            <HeroBtn />
           </div>
 
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-neutral-500">
