@@ -2,6 +2,16 @@
 
 A modern **online appointment booking platform for beauty salons**, built with **Next.js, React, TypeScript, and Tailwind CSS**.
 
+> ## 📌 Portfolio Repository
+>
+> This project was originally developed in a separate repository as a full-stack application and was connected to a **real Django backend**.
+>
+> The original backend has since been removed from this repository. This repository was created later as a **portfolio showcase** to present the frontend implementation, UI/UX, architecture, and booking flow.
+>
+> The current version is therefore **frontend-focused**, and the required application data and booking behavior are handled on the client side for demonstration purposes.
+>
+> The original project included real API integration for authentication, services, staff, schedules, appointments, and payment-related operations.
+
 The platform provides a simple and responsive experience for customers to browse salon services, select a staff member, choose an available date and time, and complete their appointment booking.
 
 ## ✨ Features
@@ -11,7 +21,7 @@ The platform provides a simple and responsive experience for customers to browse
 - 👩‍💼 Select staff member
 - 🗓️ Persian/Jalali calendar support
 - ⏰ Select available appointment time slots
-- 🔐 OTP-based authentication
+- 🔐 OTP-based authentication flow
 - 💳 Appointment payment flow
 - 📱 Responsive design for mobile, tablet, and desktop
 - 🎨 Modern UI with animations
@@ -31,9 +41,9 @@ The platform provides a simple and responsive experience for customers to browse
 
 ### State & Data Management
 
-- **TanStack React Query** — Server state and API data management
+- **TanStack React Query** — Server state and asynchronous data management
 - **Zustand** — Client-side state management
-- **Axios** — HTTP client
+- **Axios** — HTTP client used in the original full-stack version
 
 ### Forms & Validation
 
@@ -63,6 +73,7 @@ The platform provides a simple and responsive experience for customers to browse
 
 ```text
 luxe-beauty-salon/
+
 │
 ├── api/                  # API-related functionality
 │
@@ -102,21 +113,37 @@ The main appointment booking flow is designed as a simple step-by-step experienc
 
 ```text
 Home
+
   ↓
+
 Login / OTP Authentication
+
   ↓
+
 Select Service
+
   ↓
+
 Select Staff Member
+
   ↓
+
 Select Date
+
   ↓
+
 Select Available Time
+
   ↓
+
 Review Appointment
+
   ↓
+
 Payment
+
   ↓
+
 Booking Confirmation
 ```
 
@@ -124,9 +151,9 @@ The booking calendar supports the **Persian/Jalali calendar**, providing a local
 
 ## 🔌 API Integration
 
-The frontend communicates with the backend through API requests using **Axios**.
+The original version of this project was developed as a full-stack application and communicated with a **Django backend** through API requests using **Axios**.
 
-The API layer is responsible for communicating with the backend for operations such as:
+The original API layer handled operations such as:
 
 - Authentication
 - Fetching salon services
@@ -136,7 +163,19 @@ The API layer is responsible for communicating with the backend for operations s
 - Creating appointments
 - Payment-related requests
 
-**TanStack React Query** is used to manage server-side data fetching, caching, synchronization, loading states, and errors.
+**TanStack React Query** was used to manage server-side data fetching, caching, synchronization, loading states, and errors.
+
+### Current Portfolio Version
+
+The Django backend is **not included in this repository**.
+
+For the current portfolio version:
+
+- Backend services have been removed
+- The frontend works independently
+- Required application data is handled on the client side
+- The booking flow is preserved for demonstration purposes
+- The repository focuses on frontend architecture, UI/UX, responsiveness, and user experience
 
 ## 🗃️ State Management
 
@@ -148,9 +187,9 @@ Application stores are organized inside:
 stores/
 ```
 
-Server-side data and asynchronous API state are handled separately using **TanStack React Query**.
+In the original full-stack implementation, server-side data and asynchronous API state were handled separately using **TanStack React Query**.
 
-This separation keeps client state and server state easier to manage and maintain.
+This separation helped keep client state and server state easier to manage and maintain.
 
 ## 📱 Responsive Design
 
@@ -173,6 +212,7 @@ The main goals of this project are:
 - Provide a smooth booking experience
 - Support Persian users with RTL and Jalali calendar functionality
 - Build a maintainable and scalable frontend architecture
+- Demonstrate a production-oriented frontend project as part of a portfolio
 
 ## 🚀 Getting Started
 
@@ -186,7 +226,9 @@ npm install
 
 ### 2. Configure environment variables
 
-Create a `.env.local` file in the root directory and add the required environment variables.
+The current portfolio version does not require the original Django backend.
+
+If environment variables are required by the frontend, create a `.env.local` file in the root directory.
 
 For example:
 
@@ -194,7 +236,7 @@ For example:
 NEXT_PUBLIC_API_URL=your_api_url
 ```
 
-> Add any additional environment variables required by the backend or deployment environment.
+> The API environment variable above is only relevant to the original full-stack version or any future backend integration.
 
 ### 3. Run the development server
 
@@ -229,7 +271,9 @@ npm run start
 
 ## 📌 Development
 
-This project is actively developed and its structure, features, and UI may evolve as new requirements are introduced.
+This project was originally developed as a full-stack application and later adapted into a dedicated frontend portfolio repository.
+
+The structure, features, and UI may evolve as new requirements are introduced.
 
 ---
 
@@ -239,10 +283,6 @@ Built with ❤️ using **Next.js, React, TypeScript, and Tailwind CSS**.
 
 Copyright © 2026 Fatemeh Mashayekhi. All rights reserved.
 
-This repository is publicly available for viewing and portfolio
-purposes only.
+This repository is publicly available for viewing and portfolio purposes only.
 
-The source code may be viewed and studied for personal and
-educational purposes, but may not be copied, modified,
-redistributed, published, or used in other projects without
-prior written permission from the copyright holder.
+The source code may be viewed and studied for personal and educational purposes, but may not be copied, modified, redistributed, published, or used in other projects without prior written permission from the copyright holder.
