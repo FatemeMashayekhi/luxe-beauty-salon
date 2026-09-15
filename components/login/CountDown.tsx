@@ -33,16 +33,11 @@ export default function CountDown({
       .padStart(2, "0")}`;
   };
 
-  // const mutation = useMutation({
-  //   mutationFn: otpLogin,
-  // });
-
   const handleResendClick = () => {
     const convertedValues = {
       phone_number: convertToPersianNumbers(phoneNumber),
     };
 
-    // mutation.mutate(convertedValues);
     console.log(convertedValues);
 
     setCountdown(initialSeconds);

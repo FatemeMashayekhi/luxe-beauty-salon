@@ -4,9 +4,6 @@ import CodeBox from "./CodeBox";
 import { useRef, useState } from "react";
 import CountDown from "./CountDown";
 import { useRouter } from "next/navigation";
-// import Cookies from "js-cookie";
-// import { useMutation } from "@tanstack/react-query";
-// import { otpVerify } from "@/api/services";
 import { convertToPersianNumbers } from "@/lib/utils";
 
 interface Props {
@@ -17,52 +14,6 @@ export default function Verification({ phoneNumber }: Props) {
   const router = useRouter();
   const [otp, setOtp] = useState<string[]>(Array(6).fill(""));
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
-
-  // const mutation = useMutation({
-  //   mutationFn: otpVerify,
-  //   onSuccess: (data) => {
-  //     // const access = data.access || "";
-  //     // const refresh = data.refresh || "";
-
-  //     // Cookies.set("refresh_token", refresh, {
-  //     //   secure: true,
-  //     //   sameSite: "Lax",
-  //     //   httpOnly: false,
-  //     //   path: "/",
-  //     //   domain: "",
-  //     //   expires: new Date(Date.now() + 10 * 24 * 60 * 60 * 1000),
-  //     // });
-  //     // Cookies.set("access_token", access, {
-  //     //   secure: true,
-  //     //   sameSite: "Lax",
-  //     //   httpOnly: false,
-  //     //   path: "/",
-  //     //   domain: "",
-  //     //   expires: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000),
-  //     // });
-  //     //       toast({
-  //     //   title: "کد با موفقیت تایید شد",
-  //     // });
-
-  //   },
-  //   // onError: (error: AxiosError) => {
-  //   //   console.log(error);
-  //   //   const messages = getErrorMessages(error);
-  //   //   if (error.status === 500) {
-  //   //     toast({
-  //   //       variant: "destructive",
-  //   //       description:
-  //   //         "خطایی در ارتباط با سرور رخ داده ، به پشتیبانی اطلاع دهید.",
-  //   //     });
-  //   //   } else {
-  //   //     toast({
-  //   //       variant: "destructive",
-  //   //       description:
-  //   //         messages[0] || "خطایی در تایید کد رخ داده ، لطفا دوباره تلاش کنید",
-  //   //     });
-  //   //   }
-  //   // },
-  // });
 
   const handleSubmit = () => {
     const code = otp.join("");

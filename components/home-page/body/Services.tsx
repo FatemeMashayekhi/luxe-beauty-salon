@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 import facial from "@/public/images/services/facial-mask.png";
 import hair from "@/public/images/services/hair.png";
 import nail from "@/public/images/services/nail-polish.png";

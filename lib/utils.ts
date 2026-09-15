@@ -1,3 +1,4 @@
+import { PERSIAN_MONTHS } from "@/components/booking/schedule/schedule.constants";
 import dayjs from "dayjs";
 import jalaliday from "jalaliday";
 
@@ -36,21 +37,6 @@ export const faNumber = (enNumber: string | number): string => {
 
 dayjs.extend(jalaliday);
 
-const persianMonths = [
-  "فروردین",
-  "اردیبهشت",
-  "خرداد",
-  "تیر",
-  "مرداد",
-  "شهریور",
-  "مهر",
-  "آبان",
-  "آذر",
-  "دی",
-  "بهمن",
-  "اسفند",
-];
-
 const toPersianNumber = (value: string | number) =>
   value.toString().replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)]);
 
@@ -61,7 +47,7 @@ export const formatPersianDate = (date: string | null | undefined) => {
 
   const day = toPersianNumber(jalali.format("D"));
 
-  const month = persianMonths[Number(jalali.format("M")) - 1];
+  const month = PERSIAN_MONTHS[Number(jalali.format("M")) - 1];
 
   const year = toPersianNumber(jalali.format("YYYY"));
 
