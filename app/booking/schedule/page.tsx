@@ -9,12 +9,10 @@ import { staffTimesData } from "@/data/time";
 
 export default function SchedulePage() {
   const router = useRouter();
-
   const service = useBookingStore((state) => state.service);
   const employee = useBookingStore((state) => state.employee);
   const date = useBookingStore((state) => state.date);
   const time = useBookingStore((state) => state.time);
-
   const setDate = useBookingStore((state) => state.setDate);
   const setTime = useBookingStore((state) => state.setTime);
   const setSlotId = useBookingStore((state) => state.setSlotId);
@@ -61,32 +59,36 @@ export default function SchedulePage() {
   }
 
   return (
-    <div className="mx-auto max-w-5xl p-4 lg:flex lg:flex-col lg:justify-center lg:items-center">
-      <div className="mb-4 rounded-2xl border border-gray-200 bg-white p-4 w-full">
-        <div className="flex items-center justify-between">
-          <div className="flex flex-col gap-y-1">
-            <span className="text-xs text-gray-500">خدمت</span>
+    <div className="mx-auto w-full max-w-4xl px-4 py-5 lg:py-8">
+      <div className="mb-5">
+        <h1 className="mt-1 text-xl font-bold text-[#292929] lg:text-2xl">
+          انتخاب تاریخ و ساعت
+        </h1>
+        <p className="mt-1 text-sm text-[#999]">
+          زمان مناسب برای دریافت خدمت خود را انتخاب کنید.
+        </p>
+      </div>
 
-            <span className="font-semibold text-gray-900">{service.title}</span>
-          </div>
+      <div className="mb-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <div className="rounded-2xl border border-[#F1E5E8] bg-white p-4">
+          <p className="mb-1 text-xs text-[#999]">خدمت انتخاب‌شده</p>
+          <p className="font-semibold text-[#292929]">{service.title}</p>
+        </div>
 
-          <div className="flex flex-col items-end gap-y-1">
-            <span className="text-xs text-gray-500">متخصص</span>
-
-            <span className="font-semibold text-gray-900">
-              {employee.first_name} {employee.last_name}
-            </span>
-          </div>
+        <div className="rounded-2xl border border-[#F1E5E8] bg-white p-4">
+          <p className="mb-1 text-xs text-[#999]">متخصص</p>
+          <p className="font-semibold text-[#292929]">
+            {employee.first_name} {employee.last_name}
+          </p>
         </div>
       </div>
 
-      <div className="rounded-3xl border bg-white p-1 shadow-sm lg:w-[60%]">
+      <div className="mx-auto w-full max-w-3xl rounded-3xl border border-[#F0E6E8] bg-white p-2 shadow-sm sm:p-3">
         <BookingCalendar
           availableDays={availableDays}
           selectedDate={date}
           onSelectDate={setDate}
         />
-
         <FreeTimeSection
           date={date}
           slots={availableSlots}
@@ -94,7 +96,6 @@ export default function SchedulePage() {
           setSlotId={setSlotId}
           time={time}
         />
-
         <ShowDateTime date={date} time={time} />
       </div>
     </div>

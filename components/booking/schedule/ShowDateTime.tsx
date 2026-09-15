@@ -4,32 +4,10 @@ import { useBookingStore } from "@/stores/bookingStore";
 import { useRouter } from "next/navigation";
 import dayjs from "dayjs";
 import jalaliday from "jalaliday";
+import { Icon } from "@iconify/react";
+import { formatJalaliDate } from "./schedule.utils";
 
 dayjs.extend(jalaliday);
-
-const persianMonths = [
-  "فروردین",
-  "اردیبهشت",
-  "خرداد",
-  "تیر",
-  "مرداد",
-  "شهریور",
-  "مهر",
-  "آبان",
-  "آذر",
-  "دی",
-  "بهمن",
-  "اسفند",
-];
-
-const formatJalaliDate = (date: string) => {
-  const jalali = dayjs(date).calendar("jalali");
-  const day = jalali.format("D");
-  const month = persianMonths[Number(jalali.format("M")) - 1];
-  const year = jalali.format("YYYY");
-
-  return `${faNumber(day)} ${month} ${faNumber(year)}`;
-};
 
 type ShowDateTimeProps = {
   date: string | null;
@@ -51,34 +29,47 @@ export default function ShowDateTime({ date, time }: ShowDateTimeProps) {
     router.push("/booking/information");
   };
 
+  if (!date || !time) {
+    return null;
+  }
+
   return (
-    <>
-      {date && time && (
-        <div className="rounded-2xl bg-primary/10 p-5">
-          <div className="space-y-2">
-            <p>
-              <span className="font-semibold">تاریخ:</span>
-
-              <span dir="rtl" className="mr-2">
-                {formatJalaliDate(date)}
-              </span>
-            </p>
-
-            <p>
-              <span className="font-semibold">ساعت:</span>
-
-              <span className="mr-2">{faNumber(time)}</span>
-            </p>
-          </div>
-
-          <button
-            onClick={handleContinue}
-            className="mt-5 h-12 w-full rounded-xl bg-[#EF617D] text-white disabled:opacity-50"
-          >
-            ادامه
-          </button>
+    <div className="border-t border-[#F0F0F0] bg-[#FFF8FA] p-4 sm:p-5">
+      <div className="mb-4 flex items-center gap-2">
+        <div className="flex size-9 items-center justify-center rounded-xl bg-[#FCE7EC] text-[#EF617D]">
+          <Icon icon="solar:calendar-linear" width="20" />
         </div>
-      )}
-    </>
+
+        <div>
+          <p className="text-xs text-[#999]">زمان انتخاب‌شده</p>
+          <p className="text-sm font-semibold text-[#292929]">
+            آماده ادامه رزرو
+          </p>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 gap-3">
+        <div className="rounded-xl bg-white px-3 py-3">
+          <p className="mb-1 text-xs text-[#999]">تاریخ</p>
+          <p dir="rtl" className="text-sm font-semibold text-[#292929]">
+            {formatJalaliDate(date)}
+          </p>
+        </div>
+
+        <div className="rounded-xl bg-white px-3 py-3">
+          <p className="mb-1 text-xs text-[#999]">ساعت</p>
+          <p className="text-sm font-semibold text-[#292929]">
+            {faNumber(time)}
+          </p>
+        </div>
+      </div>
+
+      <button
+        onClick={handleContinue}
+        className="mt-4 h-12 w-full rounded-xl bg-[#EF617D] text-sm font-semibold text-white transition-all hover:bg-[#E65370] active:scale-[0.99]"
+      >
+        ادامه و ثبت اطلاعات
+      </button>
+    </div>
   );
 }
